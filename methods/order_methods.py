@@ -25,11 +25,3 @@ class OrdersMethods:
     def accept_order(order_id, courier_id):
         return requests.put(f'{data.Url.ACCEPT_ORDER_URL}/{order_id}?courierId={courier_id}')
 
-
-    @staticmethod
-    def get_courier_id( login, password):
-        login_password = {'login': login, 'password':  password}
-        responce = requests.post(data.Url.LOGIN_URL, json=login_password)
-
-        return responce.json()['id']
-

@@ -15,8 +15,7 @@ class CourierMethods:
     @staticmethod
     def delete_courier(courier_id):
         return requests.delete(f"{data.Url.COURIER_URL}/{courier_id}", json={
-    "id": courier_id
-})
+    "id": courier_id })
 
     @staticmethod
     def get_courier_id( login, password):

@@ -19,14 +19,14 @@ class TestDeleteCourier:
 
         assert deleted_courier.status_code == 200 and deleted_courier.json() == { "ok": True }
 
-    @allure.title('Тест на получение ошибки при запросе без id')
+    @allure.title('Тест на получение ошибки при запросе на удаление без id курьера')
 
     def test_delete_courier(self):
         deleted_courier = CourierMethods.delete_courier(None)
 
         assert deleted_courier.status_code == 400 and deleted_courier.json().get("message") == "Недостаточно данных для удаления курьера"
 
-    @allure.title('Тест на получение ошибки при запросе с несуществующим id')
+    @allure.title('Тест на получение ошибки при запросе на удаление с несуществующим id')
     def test_delete_courier(self):
         deleted_courier = CourierMethods.delete_courier(random.randint(100, 999))
 

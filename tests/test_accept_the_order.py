@@ -22,7 +22,6 @@ class TestAcceptOrder:
         assert accept_response.status_code == 200 and accept_response.json() == {"ok": True}
 
     @allure.title('Тест на получение ошибки принятии заказа без id курьера')
-
     def test_accept_order_without_courier_id(self):
         # Создаем заказ и получаем список заказов а отутда ID заказа
         new_order = OrdersMethods.create_order(generate_order_body(["BLACK"]))
@@ -42,10 +41,7 @@ class TestAcceptOrder:
         assert accept_response.status_code == 400 and accept_response.json().get(
             "message") == "Недостаточно данных для поиска"
 
-
-
     @allure.title('Тест на получение ошибки приняти заказа c неверным id курьера')
-
     def test_accept_order_invalid_courier_id(self):
         # Создаем заказ и получаем список заказов а отутда ID заказа
         new_order = OrdersMethods.create_order(generate_order_body(["BLACK"]))

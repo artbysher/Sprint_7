@@ -1,7 +1,6 @@
 import allure
 
 from generators import generate_order_body
-
 from methods.order_methods import OrdersMethods
 
 
